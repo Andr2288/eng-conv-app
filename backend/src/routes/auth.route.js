@@ -12,6 +12,7 @@ router.post("/login", authController.login);
 router.post("/logout", authController.logout);
 
 router.put("/update-profile", authMiddleware.protectRoute, authController.updateProfile);
+router.put("/update-preferences", authMiddleware.protectRoute, authController.updatePreferences);
 
 router.get("/check", authMiddleware.protectRoute, authController.checkAuth);
 

@@ -21,6 +21,44 @@ const userSchema = new mongoose.Schema(
         profilePic: {
             type: String,
             default: ""
+        },
+        preferences: {
+            theme: {
+                type: String,
+                default: "light"
+            },
+            language: {
+                type: String,
+                default: "en"
+            },
+            notifications: {
+                email: {
+                    type: Boolean,
+                    default: true
+                },
+                reminders: {
+                    type: Boolean,
+                    default: true
+                },
+                newScenarios: {
+                    type: Boolean,
+                    default: false
+                }
+            },
+            display: {
+                compactMode: {
+                    type: Boolean,
+                    default: false
+                },
+                animations: {
+                    type: Boolean,
+                    default: true
+                },
+                highContrast: {
+                    type: Boolean,
+                    default: false
+                }
+            }
         }
     },
     {

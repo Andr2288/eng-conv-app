@@ -120,6 +120,25 @@ const updateProfile = async (req, res) => {
     }
 }
 
+const updatePreferences = async (req, res) => {
+    try {
+        const { preferences } = req.body;
+        const userId = req.user._id;
+
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { preferences: { ...req.user.preferences, ...preferences } },
+            { new: true }
+        ).select("-password");
+
+        return res.status(200).json(updatedUser);
+
+    } catch (error) {
+        console.log("Error in update preferences controller", error.message);
+        return res.status(500).json({message: `Internal Server Error`});
+    }
+}
+
 const checkAuth = (req, res) => {
 
     try {
@@ -136,5 +155,6 @@ export default {
     login,
     logout,
     updateProfile,
-    checkAuth
+    checkAuth,
+    updatePreferences
 };

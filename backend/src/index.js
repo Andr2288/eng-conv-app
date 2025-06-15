@@ -1,4 +1,4 @@
-// src/index.js
+// backend/src/index.js
 
 import express from "express";
 import dotenv from "dotenv";
@@ -6,7 +6,8 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 import authRoutes from "./routes/auth.route.js";
-import database from "./lib/db.js"
+import scenarioRoutes from "./routes/scenario.route.js";
+import database from "./lib/db.js";
 
 dotenv.config();
 const app = express();
@@ -23,7 +24,7 @@ app.use(cors(
 ));
 
 app.use("/api/auth", authRoutes);
-app.use("/api/message", messageRoutes);
+app.use("/api/scenarios", scenarioRoutes);
 
 app.listen(PORT, () => {
     console.log(`Express server listening on port ${PORT}`);

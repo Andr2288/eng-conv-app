@@ -1,2 +1,75 @@
+/* frontend/src/index.css */
+
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* Custom styles */
+body {
+    padding-top: 64px; /* Account for fixed navbar */
+}
+
+/* Theme transition animations */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Disable transitions for theme preview elements */
+[data-theme] * {
+    transition: none !important;
+}
+
+/* Chat bubble custom styles */
+.chat-bubble {
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+/* Custom scrollbar for chat */
+.chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: hsl(var(--bc) / 0.2);
+    border-radius: 3px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--bc) / 0.3);
+}
+
+/* Smooth transitions */
+.btn {
+    transition: all 0.2s ease;
+}
+
+/* Loading animation improvements */
+.loading-overlay {
+    backdrop-filter: blur(2px);
+}
+
+/* Theme selector hover effects */
+.theme-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Dropdown animations */
+.dropdown-content {
+    animation: dropdown-open 0.2s ease-out;
+}
+
+@keyframes dropdown-open {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
